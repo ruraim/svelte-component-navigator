@@ -2,11 +2,15 @@
 Simple component router for svelte 3, useful for building embedded apps/widget. Change component dynamically based on defined routes without changing/updating the browser's url.
 
 ## Installation
-```npm install svelte-component-navigator```
+````sh
+npm install svelte-component-navigator
+````
 
 ## Usage
-```js
+```javascript
 <script>
+    // App.svelte
+
     import {fade} from 'svelte/transition'
     import {Router} from 'svelte-component-navigator'
     import PageOne from './PageOne.svelte';
@@ -33,4 +37,19 @@ Simple component router for svelte 3, useful for building embedded apps/widget. 
         defaultRoute="page1"
     />
 </div>
+```
+### Redirect Page
+```javascript 
+<script>
+    // PageOne.svelte
+    import {redirect} from '../router'
+
+    function changePage() {
+        redirect('page2') // use the route name
+    }
+</script>
+
+<h1>Page one test</h1>
+
+<button on:click={changePage}>to page 2</button>
 ```
