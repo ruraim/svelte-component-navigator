@@ -32,7 +32,7 @@
 </script>
 
 {#if $activeRoute}
-    {#if transition != undefined}
+    {#if transition}
         {#key $transitionTrigger}
             <div in:transition>
                 <svelte:component this={$activeRoute.component}/>
