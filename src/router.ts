@@ -1,6 +1,6 @@
 import { writable, Writable, get } from "svelte/store"
 
-export interface routeObject {
+type routeObject = {
     name: string,
     component: any
     guards?: Function[]

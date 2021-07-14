@@ -1,6 +1,12 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-    import { transitionTrigger, routeList, activeRoute, routeObject } from './router'
+    import { transitionTrigger, routeList, activeRoute } from './router'
+
+    type routeObject = {
+        name: string,
+        component: any
+        guards?: Function[]
+    }
 
     export let routes: routeObject[]
     export let defaultRoute: string = ''
