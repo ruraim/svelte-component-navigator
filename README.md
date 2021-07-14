@@ -7,7 +7,7 @@ npm install svelte-component-navigator
 ````
 
 ## Usage
-```javascript
+```html
 <script>
     // App.svelte
 
@@ -39,7 +39,7 @@ npm install svelte-component-navigator
 </div>
 ```
 ### Redirect Page
-```javascript
+```html
 <script>
     // PageOne.svelte
     import {redirect} from 'svelte-component-navigator'
