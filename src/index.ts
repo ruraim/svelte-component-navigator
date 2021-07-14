@@ -1,7 +1,7 @@
 import Router from './Router.svelte'
-//import TestApp from './test/TestApp.svelte'
 import { redirect } from './router'
 
+// import TestApp from './test/TestApp.svelte'
 // const app = new TestApp({
 //     target: document.getElementById('svelte-abstract-router-test'),
 // })
