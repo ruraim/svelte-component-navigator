@@ -39,10 +39,10 @@ npm install svelte-component-navigator
 </div>
 ```
 ### Redirect Page
-```javascript 
+```javascript
 <script>
     // PageOne.svelte
-    import {redirect} from '../router'
+    import {redirect} from 'svelte-component-navigator'
 
     function changePage() {
         redirect('page2') // use the route name
