@@ -1,0 +1,51 @@
+{
+  "name": "svelte-component-navigator",
+  "svelte": "src/index.js",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run build",
+    "check": "npx svelte-check"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@tsconfig/svelte": "^2.0.1",
+    "rollup": "^2.0.0",
+    "rollup-plugin-svelte": "^6.0.0",
+    "svelte": "^3.0.0",
+    "svelte-check": "^2.2.2",
+    "svelte-preprocess": "^4.7.4",
+    "typescript": "^4.3.5"
+  },
+  "keywords": [
+    "router",
+    "svelte",
+    "svelte3",
+    "spa",
+    "widget",
+    "embedded",
+    "navigator"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "description": "Simple component router for svelte 3",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russellraimundo/svelte-abstract-router.git"
+  },
+  "author": "Russell Raimundo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/russellraimundo/svelte-abstract-router/issues"
+  },
+  "homepage": "https://github.com/russellraimundo/svelte-abstract-router#readme",
+  "dependencies": {
+    "@rollup/plugin-typescript": "^8.2.1",
+    "serve": "^12.0.0"
+  }
+}
