@@ -1,4 +1,4 @@
-# Svelte Abstract Router
+# Svelte Component Navigator
 Simple component router for svelte 3, useful for building embedded apps/widget. Change component dynamically based on defined routes without changing/updating the browser's url.
 
 ## Installation
@@ -8,7 +8,7 @@ Simple component router for svelte 3, useful for building embedded apps/widget. 
 ```js
 <script>
     import {fade} from 'svelte/transition'
-    import {Router} from 'svelte-abstract-router'
+    import {Router} from 'svelte-component-navigator'
     import PageOne from './PageOne.svelte';
     import PageTwo from './PageTwo.svelte';
 
