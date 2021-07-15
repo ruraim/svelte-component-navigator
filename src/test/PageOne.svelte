@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {redirect} from '../router'
+    import {redirect} from '../Router.svelte'
 </script>
 
 <h1>Page one test</h1>

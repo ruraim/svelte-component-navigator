@@ -1,10 +1,9 @@
 import Router from './Router.svelte'
-import { redirect } from './router'
 
 // import TestApp from './test/TestApp.svelte'
 // const app = new TestApp({
-//     target: document.getElementById('svelte-abstract-router-test'),
+//     target: document.getElementById('app'),
 // })
 
-export { Router, redirect }
+export { Router }
 export default Router

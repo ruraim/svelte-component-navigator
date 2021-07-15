@@ -1,8 +1,8 @@
 <script lang="ts">
     import {fade} from 'svelte/transition'
-    import Router from '../Router.svelte';
-    import PageOne from './PageOne.svelte';
-    import PageTwo from './PageTwo.svelte';
+    import Router from '../Router.svelte'
+    import PageOne from './PageOne.svelte'
+    import PageTwo from './PageTwo.svelte'
 
     let routes = [
         {
@@ -14,10 +14,22 @@
             component: PageTwo
         }
     ]
+
+    let routes2 = [
+        {
+            name: 'satu',
+            component: PageOne
+        },
+        {
+            name: 'dua',
+            component: PageTwo
+        }
+    ]
 </script>
 
 <h1>Test App</h1>
 
 <div>
-    <Router transition={fade} routes={routes}/>
+    <Router transition={fade} {routes}/>
+    <Router transition={fade} routes={routes2}/>
 </div>
