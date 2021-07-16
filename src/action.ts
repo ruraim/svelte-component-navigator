@@ -3,22 +3,20 @@ import {get} from 'svelte/store'
 
 function setActiveRoute(target: string) {
     let failedAttempt: number = 0
+    let errResults: any[] = []
 
     get(instances).forEach(item => {
         try {
             router.setActive(item, target)
             document.dispatchEvent(new CustomEvent('navigator-changed', {detail: item}))
-            // console.log('ampe sini')
         } catch (e) {
             failedAttempt++
-            // console.log('gagal')
+            errResults.push(e)
         }
     })
 
-    // console.log(get(instances).length)
-
     if (failedAttempt == get(instances).length) {
-        // console.log(failedAttempt)
+        console.log(errResults)
         throw new Error('Route named ' + target + ' is not found dari sini')
     }
 }

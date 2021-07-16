@@ -14,6 +14,7 @@
     function pageChanged(ev) {
         if (ev.detail === rand) {
             activeRoute = router.getActive(ev.detail)
+            transitionTrigger = {}
         }
     }
 
@@ -29,7 +30,6 @@
 
         activeRoute = router.getActive(rand)
         document.addEventListener('navigator-changed', pageChanged)
-
     })
 
     onDestroy(() => {
