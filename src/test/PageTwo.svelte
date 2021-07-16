@@ -1,7 +1,8 @@
 <script lang="ts">
-    import {redirect} from '../Router.svelte'
+    import {link, redirect} from '../action'
 </script>
 
 <h1>Page two test</h1>
 
-<button on:click={() => {redirect('page1')}}>to page 1</button>
+<a href="page1" use:link>to page 1</a>
+<button on:click={() => {redirect('satu')}}>to page 1</button>

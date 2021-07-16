@@ -30,6 +30,7 @@
 <h1>Test App</h1>
 
 <div>
-    <Router transition={fade} {routes}/>
-    <Router transition={fade} routes={routes2}/>
+    <!-- <PageOne/> -->
+    <Router {routes}/>
+    <Router defaultRoute="dua" transition={fade} routes={routes2}/>
 </div>

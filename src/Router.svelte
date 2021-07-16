@@ -1,77 +1,51 @@
-<script lang="ts" context="module">
-    type routeObject = {
-        name: string,
-        component: any
-        guards?: Function[]
-    }
-
-    let routeList: routeObject[]
-    let activeRoute: routeObject
-
-    export function redirect(name: String) {
-        let route = routeList.find(route => route.name.toLowerCase() == name.toLowerCase())
-
-        if (route == undefined) {
-            throw new Error('Route named ' + name + ' is not found.')
-        }
-        const event = new CustomEvent('route-changed', {detail: route})
-        document.dispatchEvent(event)
-    }
-</script>
-
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte'
+    import type { routeObject } from './router'
+    import {router, instances} from './store'
 
     export let routes: routeObject[]
-    export let defaultRoute: string = ''
+    export let defaultRoute: string
     export let transition: any = false
+    let transitionTrigger: object = {}
 
-    let currentRoute: routeObject
-    let transitionTrigger: Object = {}
+    let activeRoute: routeObject
+    let rand: string
 
-    function initRouter() {
-
-        if (routes.length <= 0 || routes == undefined) {
-            throw new Error('Routes object is required')
+    function pageChanged(ev) {
+        if (ev.detail === rand) {
+            activeRoute = router.getActive(ev.detail)
         }
-
-        routeList = routes
-
-        console.log(routeList)
-
-        activeRoute = routeList[0]
-        if (defaultRoute != '' && defaultRoute != undefined) {
-            activeRoute = routeList.find(route => route.name.toLowerCase() == defaultRoute.toLowerCase())
-        }
-
-        currentRoute = activeRoute
     }
 
-    let eventObj
-
     onMount(() => {
+        rand = Math.random().toString()
 
-        eventObj = document.addEventListener('route-changed', (ev: CustomEvent) => {
-            currentRoute = ev.detail
-            transitionTrigger = {}
-        })
+        router.addInstance(rand, routes)
 
-        initRouter()
+        router.setActive(rand, $router[rand][0].name)
+        if (defaultRoute) {
+            router.setActive(rand, defaultRoute)
+        }
+
+        activeRoute = router.getActive(rand)
+        document.addEventListener('navigator-changed', pageChanged)
+
     })
 
     onDestroy(() => {
-        document.removeEventListener('route-changed', eventObj)
+        document.removeEventListener('navigator-changed', pageChanged)
     })
+
 </script>
 
-{#if currentRoute}
+{#if activeRoute}
     {#if transition}
         {#key transitionTrigger}
             <div in:transition>
-                <svelte:component this={currentRoute.component}/>
+                <svelte:component this={activeRoute.component}/>
             </div>
         {/key}
     {:else}
-        <svelte:component this={currentRoute.component}/>
+        <svelte:component this={activeRoute.component}/>
     {/if}
 {/if}

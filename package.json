@@ -1,6 +1,6 @@
 {
   "name": "svelte-component-navigator",
-  "svelte": "src/Router.svelte",
+  "svelte": "src/index.ts",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
   "type": "module",
@@ -34,7 +34,7 @@
     "dist"
   ],
   "description": "Simple component router for svelte 3",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/russellraimundo/svelte-abstract-router.git"
