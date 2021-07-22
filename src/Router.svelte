@@ -42,10 +42,10 @@
     {#if transition}
         {#key transitionTrigger}
             <div in:transition>
-                <svelte:component this={activeRoute.component}/>
+                <svelte:component routeData={activeRoute.params} this={activeRoute.component}/>
             </div>
         {/key}
     {:else}
-        <svelte:component this={activeRoute.component}/>
+        <svelte:component routeData={activeRoute.params} this={activeRoute.component}/>
     {/if}
 {/if}

@@ -34,7 +34,7 @@
     "dist"
   ],
   "description": "Simple component router for svelte 3",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/russellraimundo/svelte-abstract-router.git"

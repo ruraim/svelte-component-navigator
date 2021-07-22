@@ -1,11 +1,15 @@
 import {router, instances} from './store'
-import {get} from 'svelte/store'
+
+let instanceList = []
+instances.subscribe(value => {
+    instanceList = value
+})
 
 function setActiveRoute(target: string) {
     let failedAttempt: number = 0
     let errResults: any[] = []
 
-    get(instances).forEach(item => {
+    instanceList.forEach(item => {
         try {
             router.setActive(item, target)
             document.dispatchEvent(new CustomEvent('navigator-changed', {detail: item}))
@@ -15,9 +19,8 @@ function setActiveRoute(target: string) {
         }
     })
 
-    if (failedAttempt == get(instances).length) {
-        console.log(errResults)
-        throw new Error('Route named ' + target + ' is not found dari sini')
+    if (failedAttempt == instanceList.length) {
+        throw new Error('Route named ' + target + ' is not found')
     }
 }
 

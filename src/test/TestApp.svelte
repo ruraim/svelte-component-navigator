@@ -7,7 +7,10 @@
     let routes = [
         {
             name: 'page1',
-            component: PageOne
+            component: PageOne,
+            params: {
+                name: 'Russell Raimundo'
+            }
         },
         {
             name: 'page2',
