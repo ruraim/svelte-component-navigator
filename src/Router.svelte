@@ -2,6 +2,7 @@
     import { onDestroy, onMount } from 'svelte'
     import type { routeObject } from './router'
     import {router, instances} from './store'
+    import {createEventDispatcher} from 'svelte'
 
     export let routes: routeObject[]
     export let defaultRoute: string
@@ -10,11 +11,13 @@
 
     let activeRoute: routeObject
     let rand: string
+    let dispatch = createEventDispatcher()
 
     function pageChanged(ev) {
         if (ev.detail === rand) {
             activeRoute = router.getActive(ev.detail)
             transitionTrigger = {}
+            dispatch('routeChanged', {id: ev.detail, route: activeRoute})
         }
     }
 

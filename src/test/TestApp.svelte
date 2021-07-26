@@ -28,6 +28,10 @@
             component: PageTwo
         }
     ]
+
+    function handleChanged(ev) {
+        console.log(ev)
+    }
 </script>
 
 <h1>Test App</h1>
@@ -35,5 +39,5 @@
 <div>
     <!-- <PageOne/> -->
     <Router {routes}/>
-    <Router defaultRoute="dua" transition={fade} routes={routes2}/>
+    <Router on:routeChanged={handleChanged} defaultRoute="dua" transition={fade} routes={routes2}/>
 </div>
