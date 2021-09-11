@@ -2,6 +2,6 @@ export type routeObject = {
     name: string,
     component: any,
     active?: boolean,
-    guards?: () => boolean,
+    guard?: (current: routeObject, target: routeObject) => boolean,
     params?: object
 }

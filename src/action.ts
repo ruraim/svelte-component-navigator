@@ -11,8 +11,8 @@ function setActiveRoute(target: string) {
 
     instanceList.forEach(item => {
         try {
-            router.setActive(item, target)
-            document.dispatchEvent(new CustomEvent('navigator-changed', {detail: item}))
+            let status = router.setActive(item, target)
+            if (status) document.dispatchEvent(new CustomEvent('navigator-changed', {detail: item}))
         } catch (e) {
             failedAttempt++
             errResults.push(e)

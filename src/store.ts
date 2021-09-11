@@ -22,7 +22,10 @@ export const router = (() => {
     function setActive(uniqueId: string, route: string) {
         let specific = routes[uniqueId]
         let result = specific.find(item => item.name.toLowerCase() == route.toLowerCase())
+        let current = specific.find(item => item.active)
         if (!result) throw new Error('Route named ' + route + ' is not found')
+
+        if (result.guard && !result.guard(current, result)) return false
 
         let updatedRoutes = specific.map(item => {
             item.active = false
@@ -36,6 +39,7 @@ export const router = (() => {
             value[uniqueId] = updatedRoutes
             return value
         })
+        return true
     }
 
     function getActive(uniqueId: string) {

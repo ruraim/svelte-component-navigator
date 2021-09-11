@@ -14,7 +14,11 @@
         },
         {
             name: 'page2',
-            component: PageTwo
+            component: PageTwo,
+            guard(current, target) {
+                console.log(current, target)
+                return true
+            }
         }
     ]
 
